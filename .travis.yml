@@ -3,4 +3,5 @@ node_js:
   - "6"
 env:
   - TEST_DIR=app-api
+  - TEST_DIR=app-web
 script: cd $TEST_DIR && npm install && npm test
