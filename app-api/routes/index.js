@@ -2,15 +2,15 @@ var express = require('express')
 var router = express.Router()
 
 router.get('/', function (req, res, next) {
-  res.json({ items: [{ item: 'Cheese' }, { item: 'Butter' }, { item: 'Milk' }] })
+  res.json({ items: [{ name: 'Cheese' }, { name: 'Butter' }, { name: 'Milk' }] })
 })
 
 router.get('/:id', function (req, res, next) {
-  res.json({item: 'Cheese'})
+  res.json({name: 'Cheese'})
 })
 
 router.post('/', function (req, res, next) {
-  res.status(201).send({item: 'Cheese'})
+  res.status(201).send({name: 'Cheese'})
 })
 
 router.delete('/:id', function (req, res, next) {
