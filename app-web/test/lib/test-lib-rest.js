@@ -15,16 +15,18 @@ describe('rest', function () {
     rest = proxyquire('../../lib/rest', {'request': request})
   })
 
-  it('getItems should call API and parse body', function () {
-    var item = { name: 'Milk' }
-    var body = JSON.stringify({ items: [item] })
+  describe('getItems', function () {
+    it('should call API and parse body', function () {
+      var item = { name: 'Milk' }
+      var body = JSON.stringify({ items: [item] })
 
-    requestGet.yields(null, { statusCode: 200 }, body)
+      requestGet.yields(null, { statusCode: 200 }, body)
 
-    rest.getItems(function (error, items) {
-      expect(error).to.be.null
-      expect(items.length).to.equal(1)
-      expect(items[0].name).to.equal(item.name)
+      rest.getItems(function (error, items) {
+        expect(error).to.be.null
+        expect(items.length).to.equal(1)
+        expect(items[0].name).to.equal(item.name)
+      })
     })
   })
 })
